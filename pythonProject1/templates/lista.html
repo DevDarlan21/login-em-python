@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Console</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jogo in jogos %}
+            <tr>
+                <td>{{ jogo.nome }}</td>
+                <td>{{ jogo.categoria }}</td>
+                <td>{{ jogo.console }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not jogos %}
+    <p class="alert alert-warning">Nenhum jogo cadastrado.</p>
+    {% endif %}
+    <a href="/novo" class="btn btn-primary" aria-label="Adicionar um novo jogo">Adicionar Novo Jogo</a>
+{% endblock %}
